@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/tour.css"/>
+		<link rel="stylesheet" href="./font_px54pcmx9ul/iconfont.css">
+		<link rel="stylesheet" href="font_rm2pw0518f9/demo.css"><!-- 多个的那个文件 -->
+		<link rel="stylesheet" href="css/iconfont.css">
+		<title>清鸿</title>
+	</head>
+	<body>
+		<div class="background">
+			<!-- 头部开始 -->
+		<div class="head">
+				<div class="head-left">清鸿</div>
+				<div class="head-right">一一基于互联网体验式的电商旅游平台</div>
+				
+		</div>
+			
+		<!-- 导航栏部分开始 -->
+	
+	<div class="nav">
+			<div class="most-nav">
+				<ul class="nav-ul">
+				<li class="liang"><a href="http://127.0.0.1:8848/tour/tour.html">首页</a></li>
+				<li class="two"><a href="http://127.0.0.1:8848/tour/jingdian.html">景点</a></li>
+				<li class="two"><a href="">路线</a></li>
+				<li class="two"><a href="">酒店</a></li>
+				<li class="two"><a href="http://127.0.0.1:8848/tour/js/food.html">美食</a></li>
+				<li class="three"><a href="http://127.0.0.1:8848/tour/js/make-tour.html">定制游</a></li>
+				<li class="three"><a href="">vr游玩</a></li>
+				<li class="four"><a href="">搭子广场</a></li>
+				<li class="four"><a href="">个人中心</a></li>
+				</ul>
+			</div>
+	</div>
+			
+		
+			<!-- 轮播图部分开始 -->
+				<div class="carousel">
+					<div class="wraptwo">
+						<ul class="listtwo">
+						<li class="item"><img src="js/111.jpg" /></li>
+						<li class="item active"><img src="js/5.jpg"/></li>
+						<li class="item"><img src="js/1.jpg" /></li>
+						<li class="item"><img src="js/2.jpg" /></li>
+						<li class="item"><img src="js/3.jpg" /></li>
+						<li class="item"><img src="js/4.jpg" /></li>
+					</ul>
+					
+					<!-- 搜索开始 -->
+					<div class="nav-search-compact">
+					<div class="search-prefix"><img src="js/search.png" alt=""></div>
+					<input class="search-input" type="text" placeholder="目的地/酒店/景点/搭子等">
+					<!-- <button type="button" class="search-btn"><span>搜索</span></button> -->
+					 <div class="fly-nav-search-suggest" style="display: none"></div>
+					<div class="fly-nav-search-recommend" style="display: none"></div>
+					</div>
+					
+					
+					<button type="button" class="btn" id="gopre"><</button>
+					<button type="button" class="btn" id="gonext">></button>
+					<UL class="pointlist">
+						<li class="point acti" data_index='0'></li>
+						<li class="point" data_index='1'></li>
+						<li class="point" data_index='2'></li>
+						<li class="point" data_index='3'></li>
+						<li class="point" data_index='4'></li>
+					</UL>
+				</div>
+				<script>
+					var item=document.getElementsByClassName('item')
+					var goprebtn=document.getElementById('gopre');
+					var gonextbtn=document.getElementById('gonext');
+					var points=document.getElementsByClassName('point')
+					var index=0;
+					var clearActive=function(){
+						for(var i=0;i<item.length;i++)
+						{
+							item[i].className='item'
+						}
+						for(var i=0;i<points.length;i++)
+						{
+							points[i].className='point'
+						}
+					}
+					var goindex=function(){
+						clearActive();
+						item[index].className='item active';
+						points[index].className='point acti'
+					}
+					var gopre=function(){
+						if(index==0){
+							index=5;
+						}
+						else
+						{index--;}
+						goindex();
+					}
+					var gonext=function(){
+						if(index==5){
+							index=0;
+						}
+						else
+						{index++;}
+						goindex();
+					}
+					goprebtn.addEventListener('click',function(){
+						gopre();
+					})
+					gonextbtn.addEventListener('click',function(){
+						gonext();
+					})
+					for(var i=0;i<points.length;i++){
+						points[i].addEventListener('click',function(){
+							var pointindex=this.getAttribute('data_index')
+							console.log(pointindex)
+							index=pointindex;
+							goindex();
+						})
+					}
+					setInterval(function(){
+						gonext();
+					},6000)
+				</script>
+			<!-- </div> -->
+			</div>
+			<!-- 轮播图结束 -->
+			<!-- 中间部分开始 -->
+			
+			<div class="wrapthree">
+				<div class="title-left">
+					<div class="color-left-title"></div>
+					<div class="text-title">热门推荐</div>
+				</div>
+				<div class="back-left">
+					<div class="left">
+						<div class="img">
+						<ul>
+						<li class="be-big"><a href=""><img src="js/sanqs.jpg"/></a></li>
+						<li class="be-big"><a href=""><img src="js/lus.jpg"/></a></li>
+						<li class="be-big"><a href=""><img src="js/twg.jpg"/></a></li>
+						<li class="be-big"><a href=""><img src="js/wangxg.jpg"/></a></li>
+						</ul>
+						</div>
+						<div class="left-name-wrapthree">
+						<ul>
+							<li><a href=""><span class="names">三清山</span></a>
+							<a href="https://j.map.baidu.com/63/VeJ"><p><span class="iconfont">&#xe613;</span>
+							江西省上饶市玉山县三清乡(近金沙服务区)</p></a>
+							</li>
+							<li><a href=""><span class="names">庐山</span></a>
+							<a href="https://j.map.baidu.com/5b/aNc"><p><span class="iconfont">&#xe613;</span>江西省九江市庐山市牯岭镇河西路19号</p></a>
+							</li>
+							<li><a href=""><span class="names">滕王阁</span></a>
+							<a href="https://j.map.baidu.com/3f/MQUh"><p><span class="iconfont">&#xe613;</span>江西省南昌市东湖区仿古街58号</p></a>
+							</li>
+							<li><a href=""><span class="names">望仙谷</span></a>
+							<a href="https://j.map.baidu.com/cd/-vLc"><p><span class="iconfont">&#xe613;</span>江西省上饶市广信区望仙乡636县道</p></a>
+							</li>
+						</ul>
+						</div>
+					</div>
+				</div>
+				<span class="generalInfo-pic generalInfo-transform-common buttons-nearby-icon"></span>
+				
+				<div class="right">
+					
+					<div class="title-right">
+					<div class="color-left-title"></div>
+					<div class="text-title">红色文化</div>
+					</div>
+					
+					<div class="civilization">
+						<ul>
+							<li><a href="http://www.zgxxb.com.cn/pad/content/202310/31/content_34130.html">精神遗产：井冈山精神、苏区精神...</a></li>
+							<li><a href="https://www.12371.cn/2013/08/05/ARTI1375688087615663.shtml?from=groupmessage&wd=&eqid=f234fbbb000a92d20000000464813b13">红色革命英雄人物：方志敏...</a></li>
+							<li><a href="https://baijiahao.baidu.com/s?id=1738682145965179095&wfr=spider&for=pc">革命遗址：南昌八一起义纪念馆...</a></li>
+							<li><a href="https://mp.weixin.qq.com/s?__biz=MzkzMjM3MTIwNw==&mid=2247484883&idx=1&sn=ff593ccec1ed37a41093800847c0e4ef&chksm=c25d8bbbf52a02adfb936c5ee87e89ed6ec1e94be51478dd7b17df6a0aa3ddac154b3202e07b&scene=27">红色文艺作品：红色歌曲《映山红》...</a></li>
+							<li><a href="https://www.maigoo.com/top/418452.html">红色教育基地：江西各地建立了众多...</a></li>
+							<li><a href="https://www.jiangxi.gov.cn/art/2021/9/29/art_481_3909893.html">红色旅游线路：江西依托丰富的...</a></li>
+							<li><a href="https://news.gmw.cn/2021-09/29/content_35199907.htm">红色歌曲与戏剧：江西的红色歌曲和戏剧...</a></li>
+							<li><a href="http://www.qstheory.cn/laigao/ycjx/2021-05/27/c_1127485753.htm">红色故事与传说：在江西这片红色土地上...</a></li>
+						</ul>
+					</div>
+					<div class="title-right">
+					<div class="color-left-title"></div>
+					<div class="text-title">推荐阅读</div>
+					</div>
+					<div class="read">
+						<ul>
+							<li><a href="https://www.sohu.com/a/239299626_732516">江西传统文化盘点|江西文化</a></li>
+							<li><a href="http://tjj.jiangxi.gov.cn/art/2021/5/26/art_38773_3376403.html">江西GDF房份人口|江西数据</a></li>
+							<li><a href="https://baijiahao.baidu.com/s?id=1782373762601216370&wfr=spider&for=pc">江西美食最全攻略|江西美食</a></li>
+							<li><a href="https://www.thepaper.cn/newsDetail_forward_25435847">江西旅游景点大全|江西景点</a></li>
+							<li><a href="https://baijiahao.baidu.com/s?id=1590114439172015081">江西著名人物汇总|江西名人</a></li>
+							<li><a href="https://www.jxzwfww.gov.cn/?flag=gj">江西便民服务信息|江西名片</a></li>
+							
+						</ul>
+					</div>	
+					
+					
+					
+				</div>
+			</div>
+		<!-- 	地图开始 -->
+			<!-- <div class="wap-title"><div class="inner-color">景点地图</div></div>
+		<div class="wap"><div class="wap-img"><img src="js/屏幕截图 2024-03-14 113440.png"/></div></div> -->
+		<!-- 服务咨询开始	
+		 <div class="wap-title-1"><div class="inner-color-1">服务咨询</div></div>
+		<div class="serve">
+			<ul>
+				 <li><a href=""><span class="iconfont">&#xe639;</span></a></li>
+				<li><a href=""><span class="iconfont">&#xe642;</span></a></li>
+				<li><a href=""><span class="iconfont">&#xe613;</span></a></li>
+				<li><a href=""><span class="iconfont">&#xe647;</span></a></li>
+				<li><a href=""><span class="iconfont">&#xe6b3;</span></a></li>
+				<li><a href=""><span class="iconfont">&#xe675;</span></a></li>
+				<li><a href=""><span class="iconfont">&#xe9d8;</span></a></li>
+				<li><a href=""><span class="iconfont">&#x100d9;</span></a></li>
+				<li><a href=""><span class="iconfont">&#xe6d5;</span></a></li>
+				<li><a href=""><span class="iconfont icon-jiudian>服务</span></a></li> 
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</ul>
+		</div>-->
+		<!-- 特色活动开始 -->
+		<div class="wap-title-1"><div class="inner-color-1">特色活动</div></div>
+		<div class="tab">
+			<div class="item-1">活动一</div>
+			<div class="item-1">活动二</div>
+			<div class="item-1">活动三</div>
+			<div class="item-1">活动四</div>
+			<div class="item-1">活动五</div>
+			<div class="item-1">活动六</div>
+			<ul>
+					<li><img src="js/activity1.jpg"/></li>
+					<li><img src="js/activity2.jpg"/></li>
+					<li><img src="js/activity3.jpg"/></li>
+					<li><img src="js/activity4.jpg"/></li>
+					<li><img src="js/activity5.jpg"/></li>
+					<li><img src="js/activity6.jpg"/></li>
+								
+			</ul>
+		</div>
+		<script>
+			let itms=document.querySelectorAll('.tab div')
+			let lis=document.querySelectorAll('.tab li')
+			itms[0].style.backgroundColor='#F19DA0'
+			lis[0].style.display='block'
+			for(let i=0;i<itms.length;i++){
+				itms[i].onmouseover=function(){
+					for(let j=0;j<lis.length;j++){
+						itms[j].style.backgroundColor='rgba(246,190,200)'
+						lis[j].style.display='none'
+					}
+					itms[i].style.backgroundColor='#F19DA0'
+					lis[i].style.display='block'
+				}
+			}
+		</script>
+		
+		
+		<!-- 页脚开始 -->
+		<div class="last">
+			<div class="zhong">
+				<li><a href="">关于我们&nbsp;&nbsp;</a></li>
+				<li><a href="">|</a></li>
+				<li><a href="">&nbsp;&nbsp;联系我们</a></li>
+				<li><a href="">&nbsp;&nbsp;|</a></li>
+				<li><a href="">&nbsp;&nbsp;意见建议</a></li>
+				<li><a href="">&nbsp;&nbsp;|</a></li>
+				<li><a href="">&nbsp;&nbsp;帮助中心</a></li>
+				<li><a href="">&nbsp;&nbsp;|</a></li>
+				<li><a href="">&nbsp;&nbsp;使用条款</a></li>
+				<!-- <a href="">关于我们&nbsp&nbsp|&nbsp&nbsp联系我们&nbsp&nbsp|&nbsp&nbsp意见建议&nbsp&nbsp|&nbsp&nbsp帮助中心&nbsp&nbsp|&nbsp&nbsp使用条款</a> -->
+			</div>
+			
+		</div>
+		
+			
+
+	</div>	
+	</body>
+</html>
